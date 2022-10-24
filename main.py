@@ -98,7 +98,7 @@ async def loco_get(loco_id: int, function: int, value: int):
         lambda: EchoClientProtocol(
             f"<F {loco_id} {function} {value}>\n", on_con_lost
         ),
-        "127.0.0.1",
+        "172.17.0.104",
         2560,
     )
     transport.close()
