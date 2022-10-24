@@ -80,7 +80,8 @@ class EchoClientProtocol(asyncio.Protocol):
 
 @app.get("/loco_light/{loco_id}/{lightness}")
 async def loco_get(loco_id: int, lightness: int):
-    value = lightness % 255
+    value = lightness % 256
+    print(value)
     if loco_id in loco_data:
         for i in range(loco_data[loco_id]["start"], loco_data[loco_id]["end"] + 1):
             neopixels_data[i]["r"] = value
